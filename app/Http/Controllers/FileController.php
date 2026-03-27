@@ -11,7 +11,7 @@ class FileController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'file'   => 'required|file|max:4096',
+            'file' => 'required|file|max:10240',
             'folder' => 'required|string'
         ]);
 
@@ -25,7 +25,8 @@ class FileController extends Controller
             'inscriptions',
             'signatures',
             'documents',
-            'carnets'
+            'carnets',
+            'schools',
         ];
 
         if (!in_array($request->folder, $allowedFolders)) {
